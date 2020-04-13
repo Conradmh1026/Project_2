@@ -1,0 +1,4 @@
+Project 2:
+
+Project 2 will use the domo d/e. The app will have ad space to serve as a profitable strategy.
+The app has the user create a character for an rpg. Maybe still trying to get a good idea down. Mainly have been working on bug fixing.
