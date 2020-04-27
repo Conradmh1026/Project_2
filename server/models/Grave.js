@@ -46,7 +46,7 @@ GraveSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return Model.find(search).select('name age').lean().exec(callback);
+  return GraveModel.find(search).select('name age').lean().exec(callback);
 };
 
 GraveModel = mongoose.model('Grave', GraveSchema);
