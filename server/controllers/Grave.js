@@ -1,59 +1,59 @@
 const models = require('../models');
 
-const { Domo } = models;
+const { Grave } = models;
 
 const makerPage = (req, res) => {
-  Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  Grave.GraveModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'An error occurred' });
     }
-    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+    return res.render('app', { csrfToken: req.csrfToken(), Graves: docs });
   });
   // res.render('app');
 };
 
-const makeDomo = (req, res) => {
+const makeGrave = (req, res) => {
   if (!req.body.name || !req.body.age) {
     return res.status(400).json({ error: 'RAWR! Both name and age are required' });
   }
 
-  const domoData = {
+  const GraveData = {
     name: req.body.name,
     age: req.body.age,
     level: req.body.level,
     owner: req.session.account._id,
   };
-  const newDomo = new Domo.DomoModel(domoData);
+  const newGrave = new Grave.GraveModel(GraveData);
 
-  const domoPromise = newDomo.save();
+  const GravePromise = newGrave.save();
 
-  domoPromise.then(() => res.json({ redirect: '/maker' }));
+  GravePromise.then(() => res.json({ redirect: '/maker' }));
 
-  domoPromise.catch((err) => {
+  GravePromise.catch((err) => {
     console.log(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'Domo aready exists.' });
+      return res.status(400).json({ error: 'Form aready exists.' });
     }
     return res.status(400).json({ error: 'An error occurred' });
   });
 
-  return domoPromise;
+  return GravePromise;
 };
 
-const getDomos = (request, response) => {
+const getGraves = (request, response) => {
   const req = request;
   const res = response;
 
-  return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  return Grave.GraveModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'An error occurred' });
     }
-    return res.json({ domos: docs });
+    return res.json({ Graves: docs });
   });
 };
 
 module.exports.makerPage = makerPage;
-module.exports.getDomos = getDomos;
-module.exports.make = makeDomo;
+module.exports.getGraves = getGraves;
+module.exports.make = makeGrave;

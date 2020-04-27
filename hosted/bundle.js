@@ -2,7 +2,7 @@
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#domoMessage").animate({
+  $("#alertMessage").animate({
     width: 'toggle'
   }, 350);
 };
@@ -15,7 +15,7 @@ var sendAjax = function sendAjax(action, data) {
     data: data,
     dataType: "json",
     success: function success(result, status, xhr) {
-      $("#domoMessage").animate({
+      $("#alertMessage").animate({
         width: 'hide'
       }, 350);
       window.location = result.redirect;
@@ -30,7 +30,7 @@ var sendAjax = function sendAjax(action, data) {
 $(document).ready(function () {
   $("#signupForm").on("submit", function (e) {
     e.preventDefault();
-    $("#domoMessage").animate({
+    $("#alertMessage").animate({
       width: 'hide'
     }, 350);
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
   });
   $("#loginForm").on("submit", function (e) {
     e.preventDefault();
-    $("#domoMessage").animate({
+    $("#alertMessage").animate({
       width: 'hide'
     }, 350);
 
@@ -61,18 +61,18 @@ $(document).ready(function () {
     sendAjax($("#loginForm").attr("action"), $("#loginForm").serialize());
     return false;
   });
-  $("#domoForm").on("submit", function (e) {
+  $("#GraveForm").on("submit", function (e) {
     e.preventDefault();
-    $("#domoMessage").animate({
+    $("#alertMessage").animate({
       width: 'hide'
     }, 350);
 
-    if ($("#domoName").val() == '' || $("#domoAge").val() == '') {
+    if ($("#GraveName").val() == '' || $("#GraveAge").val() == '') {
       handleError("RAWR! All fields are required");
       return false;
     }
 
-    sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
+    sendAjax($("#GraveForm").attr("action"), $("#GraveForm").serialize());
     return false;
   });
 });
