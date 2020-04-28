@@ -49,7 +49,7 @@ nav:nth-child(1) {
     background-color: #66bdff;
 }
 
-.GraveForm {
+.smallForm {
     border: 2px solid #338acc;
     height: 35px;
     width: 700px;
@@ -60,7 +60,7 @@ nav:nth-child(1) {
     border-top-right-radius: 4px;
 }
 
-.GraveForm label {
+.smallForm label {
     display: inline-block;
     width: 75px;
     margin-left: 10px;
@@ -69,7 +69,7 @@ nav:nth-child(1) {
     color: white;
 }
 
-.GraveForm input[type=text] {
+.smallForm input[type=text] {
     float:left;
 }
 
@@ -265,6 +265,6 @@ h3.GraveAge {
 
 .ad{
     background-color:white;
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
 }

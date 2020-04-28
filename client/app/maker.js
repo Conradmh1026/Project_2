@@ -8,7 +8,7 @@ const handleGrave = (e) => {
         return false;
     }
 
-    sendAjax('POST', $("#GraveForm").attr("action"), $("#GraveForm").serialize(), function(){
+    sendAjax('POST', $("#smallForm").attr("action"), $("#smallForm").serialize(), function(){
         redirect({redirect: '/maker'});
         loadGraveFromServer();
     });
@@ -17,12 +17,12 @@ const handleGrave = (e) => {
 
 const GraveFormProp = (props) => {
     return (
-        <form id="GraveForm"
+        <form id="smallForm"
             onSubmit={handleGrave}
-            name="GraveForm"
+            name="smallForm"
             action="/maker"
             method="POST"
-            className="GraveForm">
+            className="smallForm">
 
             <label htmlFor="name">Name: </label>
             <input id="GraveName" type="text" name="name" placholder="Grave Name" />
