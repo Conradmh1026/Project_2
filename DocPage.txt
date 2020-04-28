@@ -2,3 +2,7 @@ Project 2:
 
 Project 2 will use the domo d/e. The app will have ad space to serve as a profitable strategy.
 The app has the user create a character for an rpg. Maybe still trying to get a good idea down. Mainly have been working on bug fixing.
+
+This project was difficult to work on. A lot of the visual elements I had made do not work with it well. Other issues were trying to figure out what to really do function wise.
+A lot of work with little reward for this project and I feel this was not the best from me. After removing all the domo words from the project I had bugs pop up which took a lot of my time finding them.
+
