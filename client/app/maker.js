@@ -9,7 +9,6 @@ const handleGrave = (e) => {
     }
 
     sendAjax('POST', $("#smallForm").attr("action"), $("#smallForm").serialize(), function(){
-        redirect({redirect: '/maker'});
         loadGraveFromServer();
     });
     return false;
