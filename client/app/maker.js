@@ -30,7 +30,7 @@ const GraveForm = (props) => {
             <label htmlFor="Level">Level: </label>
             <input id="GraveLevel" type="text" name="level" placeholder="Grave Level" />
             <input type="hidden" name="_csrf" value={props.csrf} />
-            <input className="makeSubmit" type="submit" value="Make Grave" />
+            <input className="makeSubmit" type="submit" value="MakeGrave" />
         </form>
     );
 };
