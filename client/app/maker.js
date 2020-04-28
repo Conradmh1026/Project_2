@@ -14,6 +14,54 @@ const handleGrave = (e) => {
     return false;
 };
 
+const handlePasswordChange = (e) => {
+    e.preventDefault();
+
+    $('#alertMessage').animate({ width: 'hide' }, 350);
+
+    if ($("#oldPass").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
+        handleError("all fields required");
+        return false;
+    }
+    if ($("#pass").val() != $("#pass2").val()) {
+        handleError("passwords dont match!");
+        return false;
+    }
+    sendAjax('POST', $("#passwordChangeForm").attr("action"), $("#passwordChangeForm").serialize(), redirect);
+
+    return false;
+};
+
+const PasswordChange = (props) => {
+    return (
+        <form id="passwordChangeForm" name="passwordChangeForm"
+            onSubmit={handlePasswordChange}
+            action="/passwordChange"
+            method="POST"
+            className="mainForm">
+
+            <h3 id="passChangeTitle">Change Password</h3>
+            <div id="passChangeFormInput">
+                <div id="oldPassContainer">
+                    <h5>Current Password:</h5>
+                    <input id="oldPass" type="password" name="oldPass" placeholder="password" />
+                </div>
+                <div id="newPassContainer1">
+                    <h5>New Password:</h5>
+                    <input id="pass" type="password" name="pass" placeholder="password" />
+                </div>
+                <div id="newPassContainer2">
+                    <h5>Confirm New Password:</h5>
+                    <input id="pass2" type="password" name="pass2" placeholder="confirm password" />
+                </div>
+            </div>
+            <input type="hidden" name="_csrf" value={props.csrf} />
+            <input id="changePassButton" className="formSubmit" type="submit" value="Change Password" />
+        </form>
+    );
+};
+
+
 const GraveForm = (props) => {
     return (
         <form id="smallForm"
