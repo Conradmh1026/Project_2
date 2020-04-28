@@ -14,7 +14,7 @@ const handleGrave = (e) => {
     return false;
 };
 
-const GraveFormProp = (props) => {
+const GraveForm = (props) => {
     return (
         <form id="smallForm"
             onSubmit={handleGrave}
@@ -73,7 +73,7 @@ const loadGravesFromServer = () => {
 
 const setup = function(csrf){
     ReactDOM.render(
-        <GraveFormProp csrf={csrf}/>, document.querySelector("#makeGrave")
+        <GraveForm csrf={csrf}/>, document.querySelector("#makeGrave")
     );
     ReactDOM.render(
         <GraveList Graves={[]}/>, document.querySelector("#Graves")
