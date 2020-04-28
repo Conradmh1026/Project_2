@@ -92,7 +92,7 @@ nav:nth-child(1) {
     background-color: #338acc;
 }
 
-.smallForm {
+.mainForm {
     height: 300px;
     width: 350px;
     margin: 0 auto;
@@ -100,11 +100,11 @@ nav:nth-child(1) {
     font-size: 1.2em;
 }
 
-.smallForm h3 {
+.mainForm h3 {
     text-align: center;
 }
 
-.smallForm label {
+.mainForm label {
     display: inline-block;
     width: 100px;
     margin-right: 10px;
